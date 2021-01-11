@@ -57,10 +57,11 @@ class Restorer(object):
                 try:
                     if self.__try_recover_repo(sub_dir):
                         continue
+                    self.__walk(sub_dir)    
                 except ValueError as ve:
                     print(ve)
-                self.__walk(sub_dir)
-                self.history.pop()
+                finally:
+                    self.history.pop()
 
     def run(self):
         self.__walk(self.gitlab_path)
