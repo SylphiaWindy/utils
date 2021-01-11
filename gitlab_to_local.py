@@ -17,7 +17,8 @@ class Restorer(object):
         try:
             self.__make_hidden_w32 = ctypes.windll.kernel32.SetFileAttributesW
         except AttributeError:
-            pass
+            self.__make_hidden_w32 = None
+        pass
 
     @staticmethod
     def __call_command(command, command_args):
