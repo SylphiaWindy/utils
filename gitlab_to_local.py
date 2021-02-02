@@ -9,8 +9,8 @@ import ctypes
 
 class Restorer(object):
     def __init__(self, gitlab_path, output_path, with_wiki, overwrite):
-        self.gitlab_path = gitlab_path
-        self.output_path = output_path
+        self.gitlab_path = os.path.abspath(gitlab_path)
+        self.output_path = os.path.abspath(output_path)
         self.with_wiki = with_wiki
         self.overwrite = overwrite
         self.history = []
